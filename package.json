@@ -1,0 +1,6 @@
+{
+  "type": "commonjs",
+  "dependencies": {
+    "koffi": "^2.9.0"
+  }
+}
