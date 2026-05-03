@@ -50,14 +50,29 @@ When a watched app is focused, the script saves the current profile and switches
 
 The script runs silently in the background using Windows Task Scheduler.
 
-1. Right-click `setup-startup.ps1` → **Run with PowerShell as Administrator**.
+1. Open **PowerShell as Administrator**: press Start, type `powershell`, right-click **Windows PowerShell** → **Run as administrator**.
 
-2. The task is now registered. To start it immediately without rebooting:
+2. Navigate to the folder where you saved the scripts:
+   ```powershell
+   cd "C:\path\to\your\folder"
+   ```
+
+3. Unblock the script (required because it was downloaded from the internet):
+   ```powershell
+   Unblock-File -Path .\setup-startup.ps1
+   ```
+
+4. Run the setup script:
+   ```powershell
+   .\setup-startup.ps1
+   ```
+
+5. The task is now registered. To start it immediately without rebooting:
    ```powershell
    Start-ScheduledTask -TaskName "GalleonProfileSwitcher"
    ```
 
-3. To remove the startup task:
+6. To remove the startup task:
    ```powershell
    Unregister-ScheduledTask -TaskName "GalleonProfileSwitcher" -Confirm:$false
    ```
